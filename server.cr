@@ -14,12 +14,13 @@ myfun("calling you")
 myfun(123)
 
 server = HTTP::Server.new(8080) do |context|
-  puts context.request.inspect
-  puts "yo" + count.to_s
+  puts "request", context.request.inspect
+  puts "count:" + count.to_s
+  puts "path:", context.request.path
   count += 1
 
   context.response.content_type = "text/plain"
-  context.response.print "Hello world, got #{context.request.path}!"
+  context.response.print "Hello world #{count}, got #{context.request.path}!"
 end
 
 puts "Listening on http://0.0.0.0:8080"
