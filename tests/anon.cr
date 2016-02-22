@@ -6,8 +6,8 @@ proc = ->double(Int32)
 puts typeof(proc)
 puts proc.call(3)  # => 6
 
-def fn2(fun : Proc, val)
-	res = fun.call(val)
+def fn2(myProc : Proc, val)
+	res = myProc.call(val)
 	puts "res #{res}"
 end
 
